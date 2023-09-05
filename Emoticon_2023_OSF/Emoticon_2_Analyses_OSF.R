@@ -513,6 +513,11 @@ lm1<-lmer(measurement~Feedback*Relevance_pca + Feedback*Identify_pca+ (1|subjId)
 tab_model(lm1, show.se=2)
 summary(lm1)
 
+# effect of valence on identification; non-prereg
+lm1 <- lm(Identify_pca ~ Valence, data=dtRaw)
+summary(lm1)
+tab_model(lm1, show.se=2)
+
 # H4: safety and measurement ####
 # main effect of safety 
 dtVTonly<-filter(dtRaw,  Feedback %in% c("VisuoTactile"))
